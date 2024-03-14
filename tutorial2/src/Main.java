@@ -12,7 +12,7 @@ public class Main {
             System.out.println("Data: " +city+ ", " +age+ " years old, "
                     +LocalDate.now().getDayOfWeek().name().toLowerCase()+
                     "\nTicket price: " +price+ " PLN"+
-                    "\nDiscount: " +Math.round((1 - discount)*100)+ "%");
+                    "\nDiscount: " +Math.round((discount)*100)+ "%");
         }
     public static int getAgeFromTheUser() {
         Scanner scanner = new Scanner(System.in);
@@ -29,22 +29,24 @@ public class Main {
         return city;}
 
     public static double discountCalculator (int age, String city){
-        double discount = 1;
+        double discount = 0;
+
+        if (city.equalsIgnoreCase("warszawa")){
+            discount += 0.1;}
         if (age < 10){
-            discount *= 0;
+            discount = 1;
         }
         else if (age <= 18){
-            discount *= 0.5;
+            discount += 0.5;
         }
-        if (city.equalsIgnoreCase("warszawa")){
-            discount *= 0.9;}
-        if (LocalDate.now().getDayOfWeek().name().equalsIgnoreCase("tHURSDAY")){
-            discount *= 0;
+        if (LocalDate.now().getDayOfWeek().name().equalsIgnoreCase("HURSDAY")){
+            discount = 1;
         }
     return discount;}
 
     public static double priceCalculator(double discount){
-       double price = 40*discount;
+       double price = 40;
+       price = price - price*discount;
     return price;}
 
 
