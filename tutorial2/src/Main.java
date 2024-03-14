@@ -39,7 +39,7 @@ public class Main {
         else if (age <= 18){
             discount += 0.5;
         }
-        if (LocalDate.now().getDayOfWeek().name().equalsIgnoreCase("HURSDAY")){
+        if (LocalDate.now().getDayOfWeek().name().equalsIgnoreCase("tHURSDAY")){
             discount = 1;
         }
     return discount;}
